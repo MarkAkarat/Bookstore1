@@ -11,6 +11,7 @@
         include_once "class.php";
         $mycon = new Database();
         $mycon->connect();
+        $mycon->show_info();
     ?>
 </body>
 </html>

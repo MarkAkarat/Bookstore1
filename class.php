@@ -17,5 +17,32 @@ class Database{
     public function disconnect(){
         $this->dbCon->close();
     }
+    public function show_info(){
+        $sql = "SELECT * FROM 'book'";
+        $result = $this->dbCon->query($sql);
+        echo "<table border='1'>";
+        $count = 0;
+        while($row = $result->fetch_assoc()){
+            if($count == 0){
+                echo "<tr>";
+                foreach ($row as $key => $value){
+                    echo "<th>{$key}</th>";
+                }
+                echo "<th>EDIT</th>";
+                echo "<th>Delete</th>";
+                echo "</tr>";
+                $count++;
+            }
+            echo "<tr>";
+            foreach ($row as $key => $value){
+                echo "<td>{$value}</td>";
+            }
+            echo "<td><a href='formEdit.php?cusId={$row['id']}'>Edit</a></td>";
+            echo "<td><a href='formEdit.php?delete_id={$row['id']}'>Delete</a></td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+    
 }
 ?>
