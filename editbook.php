@@ -19,7 +19,7 @@
     <center><table border="1">
     <tr>
     <th><label >เลขไอดีหนังสือ</label></th>
-    <td><input type="text" name="BookID"></td>
+    <td><input type="text" name="BookID" value="<?$rs['cudid']?>"></td>
     </tr>
     <tr>
     <th><label >ชื่อหนังสือ</label></th>
